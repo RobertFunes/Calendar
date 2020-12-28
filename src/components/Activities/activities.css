@@ -1,0 +1,40 @@
+.activity {
+  max-width: 50%;
+  min-width: 40%;
+  margin: 2px;
+  background-color: blanchedalmond;
+  border: solid 2px gray;
+}
+.delActivity {
+  max-width: 50%;
+  min-width: 40%;
+  margin: 2px;
+  background-color: red;
+  border: solid 2px gray;
+}
+.activity__hour {
+  margin-top: 4px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.activity__title {
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 4px;
+  text-align: center;
+
+  border-bottom: solid 1px black;
+}
+
+.del1 {
+  background-color: orange;
+  border: 1px groove red;
+}
+.number_button {
+  font-size: 16px;
+  background-color: lightgreen;
+  border: 2px groove green;
+}
+.activity__name {
+  margin: 10px;
+}

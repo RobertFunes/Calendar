@@ -1,0 +1,54 @@
+.form {
+  display: block;
+  margin-top: 5px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+select {
+  width: 100%;
+}
+
+.form input {
+  min-width: 95%;
+}
+
+.form .notes {
+  height: 150px;
+  min-width: 95%;
+}
+.button {
+  margin-top: 10px;
+  justify-content: center;
+  display: flex;
+}
+.button button {
+  font-size: large;
+}
+.error_section {
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  background-color: crimson;
+  border: solid 2px;
+  border-color: black;
+}
+
+.loading_section {
+  min-width: 85%;
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  background-color: orange;
+  border: solid 2px;
+  border-color: black;
+}
+.saved_section {
+  min-width: 85%;
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  background-color: seagreen;
+  border: solid 2px;
+  border-color: black;
+}
