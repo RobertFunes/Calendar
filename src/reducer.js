@@ -1,7 +1,13 @@
 export const initialState= {
-    activity: [],
-    today:[],
-    tomorrow: []
+    activities: [],
+    day1:[],
+    day2: [],
+    day3: [],
+    day4: [],
+    day5: [],
+    day6: [],
+    day7: [],
+    day8: []
 }
 
 const reducer =(state, action)=>{
@@ -11,32 +17,38 @@ const reducer =(state, action)=>{
             
             return{
                 ...state,
-                activity: [...state.activity, action.item]
+                activities: [...state.activities, action.item]
             };
         case "DEL_LIST":
             return{
                 ...state,
-                today:[],
-                tomorrow: []
+                day1:[],
+                day2: [],
+                day3: [],
+                day4: [],
+                day5: [],
+                day6: [],
+                day7: [],
+                day8: []
             };
-        case "ADD_TODAY":
+        case "ADD_DAY1":
             return{
                 ...state,
-                today: [...state.today ,action.item]
+                day1: [...state.day1 ,action.item]
             }; 
-        case "ADD_TOMORROW":
+        case "ADD_DAY2":
             return{
                 ...state,
-                tomorrow: [...state.tomorrow ,action.item]
+                day2: [...state.day2 ,action.item]
             };
 
         case "DELETE":
-            console.log("1",state);
-            console.log(state.activity.filter((e)=>e.id!==action.item.id));
-            return{
-                activity: state.activity.filter((e)=>e.id!==action.item.id),             
+            //if(state.activities!==undefined){
+                return{
+                    ...state,
+                    activities: state.activities.filter((e)=>e.id!==action.item.id),             
+                //}
             }
-            
 
         default:
             return state;

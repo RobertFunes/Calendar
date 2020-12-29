@@ -18,7 +18,6 @@ function Save({name,kind,number,date,note,form}) {
             ReactDom.render(<Message s="saving"></Message>,container);
 
             hour= new Date(date);
-            console.log(new Date().getTime());
             dispatch({
                 type:"ADD_ACTIVITY",
                 item:{

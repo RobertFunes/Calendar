@@ -62,11 +62,11 @@ class Clock extends React.Component{
         
         if(Math.round(Math.random() * (2 - 1) + 1)===1){
             if(this.state.activities===0){
-                return <img className="image" src="https://image.freepik.com/free-vector/cute-koala-sleeping-icon-illustration-flat-cartoon-style_138676-1232.jpg"></img>    
+                return <img className="image" src="https://image.freepik.com/free-vector/cute-koala-sleeping-icon-illustration-flat-cartoon-style_138676-1232.jpg" alt="Sin actividades"></img>    
             }
         }else{
             if(this.state.activities===0){
-                return <img className="image" src="https://media1.tenor.com/images/40090305ab69b92d82dbd57615750a8e/tenor.gif"></img>
+                return <img className="image" alt="Sin actividades"src="https://media1.tenor.com/images/40090305ab69b92d82dbd57615750a8e/tenor.gif"></img>
             }
         }
     }
