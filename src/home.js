@@ -7,22 +7,20 @@ import {useStateValue} from "./StateProvider"
 
  
 function Home (){
-    var list=[];
-    //guardar día de hoy
-    const today= new Date();
     //states
     const [savedActivities,dispatch]= useStateValue(); 
     const [loading,setloading]=useState(true);
 
-
-    const createTodayList=()=>{
-        dispatch({
-            type:"DEL_LIST",});
+    const setDaysDispatch=(type,plus)=>{
+        let list=[];
+        let newDate = new Date();
+        newDate.setDate(newDate.getDate() + plus);
         savedActivities.activities.map((item)=>{
-            if(item.day===today.getDate() && item.month===today.getMonth() && item.year===today.getFullYear()){
+            if(item.day===newDate.getDate() && item.month===newDate.getMonth() && item.year===newDate.getFullYear()){
                 list=[...list,item];
             }
-        }); 
+            return 0
+        });
         list.sort((a,b)=>{
             if(a.hour<b.hour){
                 return -1;
@@ -35,7 +33,7 @@ function Home (){
         list.map(item=>{
             
             dispatch({
-                type:"ADD_DAY1",
+                type:type,
                 item:{
                     id:item.id,
                     name:item.name,
@@ -48,38 +46,30 @@ function Home (){
                     minutes: item.minutes,
                     day: item.day
                 }});
+            return 0   
         });
-        //tomorrow
-        list=[];
-        today.setDate(today.getDate() + 1);
-        savedActivities.activities.map((item)=>{
-            if(item.day===today.getDate() && item.month===today.getMonth() && item.year===today.getFullYear()){
-                list=[...list,item];
-            }
+        
+    }
+    const createTodayList=()=>{
+        dispatch({
+            type:"DEL_LIST",
         });
-        list.map(item=>{
-            
-            dispatch({
-                type:"ADD_DAY2",
-                item:{
-                    id:item.id,
-                    name:item.name,
-                    kind:item.kind,
-                    number:item.number,
-                    month: item.month,
-                    year: item.year,
-                    note:item.note,
-                    hour: item.hour,
-                    minutes: item.minutes,
-                    day: item.day
-                }});
-        }); 
+        setDaysDispatch("ADD_DAY1",0);
+        setDaysDispatch("ADD_DAY2",1);
+        setDaysDispatch("ADD_DAY3",2);
+        setDaysDispatch("ADD_DAY4",3);
+        setDaysDispatch("ADD_DAY5",4);
+        setDaysDispatch("ADD_DAY6",5);
+        setDaysDispatch("ADD_DAY7",6);
+        setDaysDispatch("ADD_DAY8",7);
+
+
         setloading(false);
+        return
     }
     
-    React.useEffect(()=>{
-        createTodayList();
-        
+    useEffect(()=>{
+        createTodayList();      
     },[]);
     const handleClock=(listLenght,plus)=>{
         if(loading===true || listLenght===undefined){

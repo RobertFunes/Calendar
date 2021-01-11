@@ -64,12 +64,13 @@ class Edit extends React.Component {
                 <NavBar></NavBar>
                 <form className="form">
                     <h3>Nombre y apellido: </h3>
-                    <input type="text" autoComplete="off" onChange={(e)=>{this.setName(e.target.value)}}></input>
+                    <input required type="text" autoComplete="off" onChange={(e)=>{this.setName(e.target.value)}}></input>
                     <h3>Tipo: </h3>
                     <select onChange={(e)=>this.setKind(e)}>
                         <option>Primera vez</option>
                         <option>Subsecuente</option>
                         <option>A domicilio</option>
+                        <option>Videollamada</option>
                         <option>Otro</option>
                     </select>
                     <h3>📱 Número:</h3>

@@ -18,6 +18,20 @@ class Clock extends React.Component{
         var time= this.props.time;
         this.dateTransalte(time);
     }
+    shouldComponentUpdate(nextProps,nextState){
+        
+        if(nextProps!==this.props){
+            var time= nextProps.time;
+            this.dateTransalte(time);
+            this.setState({
+                activities: nextProps.activities
+            })
+            return true;
+        }else{
+            return true;
+        }
+
+    }
     dateTransalte=(date)=>{
         const months= [
             "Enero",
