@@ -41,20 +41,19 @@ function See(){
         });
     }
     const createList=(day,month,year)=>{
-        let date=new Date(year,month,day);
-        setDaysDispatch("ADD_DAY1",0,date);
-        setDaysDispatch("ADD_DAY2",1,date);
-        setDaysDispatch("ADD_DAY3",2,date);
-        setDaysDispatch("ADD_DAY4",3,date);
-        setDaysDispatch("ADD_DAY5",4,date);
-        setDaysDispatch("ADD_DAY6",5,date);
-        setDaysDispatch("ADD_DAY7",6,date);
-        setDaysDispatch("ADD_DAY8",7,date);
+        setDaysDispatch("ADD_DAY1",0,year,month,day);
+        setDaysDispatch("ADD_DAY2",1,year,month,day);
+        setDaysDispatch("ADD_DAY3",2,year,month,day);
+        setDaysDispatch("ADD_DAY4",3,year,month,day);
+        setDaysDispatch("ADD_DAY5",4,year,month,day);
+        setDaysDispatch("ADD_DAY6",5,year,month,day);
+        setDaysDispatch("ADD_DAY7",6,year,month,day);
+        setDaysDispatch("ADD_DAY8",7,year,month,day);
     }
 
-    const setDaysDispatch=(type,plus,date)=>{
+    const setDaysDispatch=(type,plus,year,month,day)=>{
         let list=[];
-        let newDate=date;
+        let newDate=new Date(year,month,day);
         newDate.setDate(newDate.getDate() + plus);
         savedActivities.activities.map((item)=>{
             if(item.day===newDate.getDate() && item.month===newDate.getMonth() && item.year===newDate.getFullYear()){
@@ -106,6 +105,7 @@ function See(){
         }  
     }
     const HandleMap = (day)=>{
+        //console.log(savedActivities);
         if(day!==undefined){
             return day.map(item=>{
             

@@ -54,13 +54,12 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 12px;
   background-color: #6e8d30;
   color: #fff;
   letter-spacing: 2 px;
   text-transform: uppercase;
   cursor: pointer;
 }
-input {
+.input {
   width: 100%;
 }

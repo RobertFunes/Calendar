@@ -2,9 +2,17 @@ import React from "react"
     import ReactDom from "react-dom";
 import {useStateValue} from "./StateProvider"
 import "./edit.css"
+import { startNewAct } from "./act";
+
+import { useDispatch } from 'react-redux';
+
+
+
+
+
 function Save({name,kind,number,date,note,form}) {
 
-    
+    const dispatchRedux=useDispatch();
     const [state,dispatch]= useStateValue(); 
 
 
@@ -18,10 +26,11 @@ function Save({name,kind,number,date,note,form}) {
             ReactDom.render(<Message s="saving"></Message>,container);
 
             hour= new Date(date);
+            const id= new Date().getTime()
             dispatch({
                 type:"ADD_ACTIVITY",
                 item:{
-                    id:new Date().getTime(),
+                    id:id,
                     name:name,
                     kind:kind,
                     number:number,
@@ -32,7 +41,21 @@ function Save({name,kind,number,date,note,form}) {
                     minutes: hour.getMinutes(),
                     day: hour.getDate()
                 }});
-                ReactDom.render(<Message s="saved" name={name}></Message>,container);        
+
+            const item={
+                id:id,
+                name:name,
+                kind:kind,
+                number:number,
+                month: hour.getMonth(),
+                year: hour.getFullYear(),
+                note:note,
+                hour: hour.getHours(),
+                minutes: hour.getMinutes(),
+                day: hour.getDate()
+            }    
+            dispatchRedux(startNewAct(item));
+            ReactDom.render(<Message s="saved" name={name}></Message>,container);        
         }
 
     }

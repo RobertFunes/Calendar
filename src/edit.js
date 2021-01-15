@@ -4,9 +4,8 @@ import Save from "./save"
 import "./edit.css"
 
 
-
-
 class Edit extends React.Component {
+    
     constructor(props){
         super(props);
         this.state={
@@ -18,7 +17,6 @@ class Edit extends React.Component {
             note: ""
         }};  
     onClick=()=>{
-        console.log("click");
         this.setState({form:"saving"});
         let promesa=new Promise((response,reject)=>{
             if(this.state.name===""){
@@ -29,7 +27,8 @@ class Edit extends React.Component {
                 reject("date error");
             }else{response("form completed")}
         });
-        promesa.then((response)=>{this.setState({form:"saving"});}).catch((error)=>{
+        promesa.then((response)=>{this.setState({form:"saving"});})
+        .catch((error)=>{
             this.setState({form:"error"});
             
         });

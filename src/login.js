@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./login.css"
+import { AuthContext } from './components/auth/AuthContext';
+import {useDispatch} from "react-redux"
+import { auth, startGoogleLogin } from './components/auth/auth';
+function Login ({history}) {
 
-function Login () {
+    const dispatch= useDispatch();
 
+    const handleLogin=()=>{
+        dispatch(startGoogleLogin())
+        history.replace("/home")
+        
+
+    }
     return(
         <div className="container">
             <div className="sub-container">
@@ -21,8 +31,8 @@ function Login () {
                         <label className="label">Password:</label>
                         <input type="password" className="input"></input>
                     </div>
-                    <div className="btn">
-                        Login
+                    <div className="btn" onClick={handleLogin}>
+                        Entrar con google
                     </div>
                 </div>
             </div>
